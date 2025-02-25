@@ -1,10 +1,11 @@
+#include <stdio.h>
 #include <string.h>
 
 int main() {
 	char *gets(char *str);
 	char yn = 'y';
 	
-	while(yn == 'y'){
+	void run(){
 		printf("enter a string\n");
 		char s[20];
 		fgets(s, 100, stdin);
@@ -23,6 +24,15 @@ int main() {
 			printf("enter another string \n");
 			char comp[20];
 			gets(comp);
+			int a = strcmp(s, comp);
+			
+			if (a > 0) {
+  				printf("%s is greater than %s\n", s, comp);
+			} else if (a < 0) {
+  				printf("%s is greater than %s\n", s, comp);
+			} else {
+  				printf("%s is equal to %s\n", s, comp);
+			}
 			break;
 			
 			case 3:
@@ -31,9 +41,16 @@ int main() {
 			case 4:
 			break;
 		}
+		
 		printf("perform another operation? y/n\n");
 		scanf(" %c", &yn);
+		
+		if(yn == 'y){
+			run();
+		}
+		else{
+			printf("terminated \n");
+		}
 	}
-
 	return 0;
 }
